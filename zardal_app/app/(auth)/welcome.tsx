@@ -1,15 +1,38 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import Screenwrapper from '@/components/ScreenWrapper'
 import Typo from "@/components/Typo";
-import { spacingX, spacingY, } from '@/constants/theme';
+import { spacingX, spacingY, colors } from '@/constants/theme';
 import { verticalScale, } from '@/utils/styling';
 
 const Welcome = () => {
   return (
     <Screenwrapper>
-      <Typo size={30} fontWeight={"700"} color="red">
-        welcome page</Typo>
+      <View style={styles.container}>
+        {/*login*/}
+        <View>
+          <TouchableOpacity style={styles.loginButton}>
+            <Typo fontWeight={'500'}>Нэвтрэх</Typo>
+          </TouchableOpacity>
+        </View>
+        <Image
+          source={require("../../assets/images/welcome.png")}
+          style={styles.welcomeImage}
+          resizeMode="contain"
+        />
+        
+      </View>
+      {/*footer*/}
+      <View style={styles.footer}>
+          <View style={{alignItems: 'center'}}>
+              <Typo size={30} fontWeight={"800"}>Санхүүгээ удирд</Typo>
+          </View>
+      
+      <View style={[styles.buttonContainer]}>
+      {/*button*/}
+      
+      </View>
+      </View>
     </Screenwrapper>
   )
 }

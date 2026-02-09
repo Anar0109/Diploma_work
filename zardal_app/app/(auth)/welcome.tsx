@@ -4,6 +4,8 @@ import Screenwrapper from '@/components/ScreenWrapper'
 import Typo from "@/components/Typo";
 import { spacingX, spacingY, colors } from '@/constants/theme';
 import { verticalScale, } from '@/utils/styling';
+import Button from '@/components/Button';
+import Animated, {FadeIn, FadeInDown} from "react-native-reanimated";
 
 const Welcome = () => {
   return (
@@ -15,7 +17,9 @@ const Welcome = () => {
             <Typo fontWeight={'500'}>Нэвтрэх</Typo>
           </TouchableOpacity>
         </View>
-        <Image
+
+        <Animated.Image 
+          entering = {FadeIn.duration(500)}
           source={require("../../assets/images/welcome.png")}
           style={styles.welcomeImage}
           resizeMode="contain"
@@ -24,12 +28,15 @@ const Welcome = () => {
       </View>
       {/*footer*/}
       <View style={styles.footer}>
-          <View style={{alignItems: 'center'}}>
-              <Typo size={30} fontWeight={"800"}>Санхүүгээ удирд</Typo>
-          </View>
+          <Animated.View entering={FadeInDown.duration(1000).springify().damping(12)} 
+          style={{alignItems: 'center'}}>
+              <Typo size={30} fontWeight={"800"}>Санхүүгээ удирд...</Typo>
+          </Animated.View>
       
       <View style={[styles.buttonContainer]}>
-      {/*button*/}
+      <Button>
+        <Typo size={22} color={colors.neutral900} fontWeight={"600"}>ЭХЛЭХ</Typo>
+      </Button>
       
       </View>
       </View>

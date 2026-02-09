@@ -14,11 +14,11 @@ const Button = ({
 }: CustomButtonProps) => {
     
     if(loading){
-        return {
-            <View style={{styles.button, style, {backgroundColor: 'transparent'}}}>
-                {/**/}
+        return (
+            <View style={[styles.button, style, {backgroundColor: 'transparent'}]}>
+                {/*loading*/}
             </View>
-        }
+        )
     }
 
     return (
